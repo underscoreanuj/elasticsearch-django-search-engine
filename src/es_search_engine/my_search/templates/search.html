@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <h1>Search {{ index_name }}</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input class="form-control" type="text" placeholder="Search" aria-label="Search" name="request">
+        <input type="hidden" name="index_name" value="{{ index_name }}">
+    </form>
+</div>
+{% endblock content %}

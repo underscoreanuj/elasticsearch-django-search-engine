@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <h1>Indices</h1>
+    {% for index in indices %}
+    <a href="{{ index }}">{{ index }}</a><br>
+    {% endfor %}
+</div>
+{% endblock content %}
