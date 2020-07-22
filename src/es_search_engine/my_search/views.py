@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from .utils import get_all_indices
+from .utils import get_all_indices, query_index
 
 
 def home(request):
@@ -9,15 +9,20 @@ def home(request):
     context = {
         'indices': indices
     }
-    print(indices)
     return render(request, 'home.html', context=context)
 
 def search(request, index_name):
     if request.method == "POST":
-        print(request.POST)
         context = {
             'index_name': index_name
         }
+
+        query_results = query_index(request.POST.get("index_name"), request.POST.get("request"))
+
+        context = {
+            'query_results': query_results
+        }
+
         return render(request, 'search.html', context=context)
     else:
         context = {

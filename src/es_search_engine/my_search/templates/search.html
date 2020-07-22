@@ -8,5 +8,25 @@
         <input class="form-control" type="text" placeholder="Search" aria-label="Search" name="request">
         <input type="hidden" name="index_name" value="{{ index_name }}">
     </form>
+
+    <div class="container">
+        <div class="row clearfix">
+            {% if query_results %}
+            {% for res in query_results %}
+
+            <div class="card mx-auto" style="width: 32rem; margin: .50rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ res.data.product_name }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">relevancy score: {{ res.score }}</h6>
+                    <p class="card-text">{{ res.data.description | truncatechars:50 }}</p>
+                </div>
+            </div>
+
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+
 </div>
 {% endblock content %}
