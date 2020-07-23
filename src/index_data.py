@@ -41,21 +41,3 @@ with open("./dataset/flipkart_com-ecommerce_sample.csv") as f:
 
 
 print("done")
-
-
-
-
-"""
-
-GET flipkart_dataset/_search
-{
-  "query": {
-    "query_string": {
-      "query": "wereless",
-      "default_field": "description",
-      "fuzziness": 2
-    }
-  }
-}
-
-"""
