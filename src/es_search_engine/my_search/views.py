@@ -11,13 +11,15 @@ def home(request):
     }
     return render(request, 'home.html', context=context)
 
+
 def search(request, index_name):
     if request.method == "POST":
         context = {
             'index_name': index_name
         }
 
-        query_results = query_index(request.POST.get("index_name"), request.POST.get("request"))
+        query_results = query_index(request.POST.get(
+            "index_name"), request.POST.get("request"))
 
         context = {
             'query_results': query_results
